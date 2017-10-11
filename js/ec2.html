@@ -1,10 +1,26 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<link href="ec2.css" rel="stylesheet" />
 		<script src="ec2.js"></script>	
 	</head>
 	
 	<body>
-		
+		<div id="titlu">
+			Rezolvare ecuatie de gradul 2
+		</div>
+		<div id="ecuatie">
+			<p>
+				a*X^2 + b*X + c = 0
+			</p>
+			<b> A: </b> <input type="number" id="a"/> <br><br>
+			<b> B: </b><input type="number" id="b"/> <br><br>
+			<b> C: </b><input type="number" id="c"/> <br><br>
+			<button type="button" onclick="rezolvaEc()"> REZOLVA </button>
+			<p id="x1">
+			</p>
+			<p id="x2">
+			</p>
+		<div>
 	</body>
 </html>

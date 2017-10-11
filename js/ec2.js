@@ -1,0 +1,1 @@
+//var a = prompt("Introduceti valoarea lui a", "");
