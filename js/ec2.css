@@ -12,3 +12,16 @@
 	top:8%;
 	left:0
 }
+
+#rezBtn{
+	background-color:black;
+	color:cyan;
+	font-size:1vw;
+	padding:2.5%;
+}
+
+#rezultat{
+	position:absolute;
+	margin:2%;
+	top:40%;
+}
