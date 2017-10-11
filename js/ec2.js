@@ -1,22 +1,34 @@
-function rezolvaEc(){
-	var a = document.getElementById("a").value;
-	var b = document.getElementById("b").value;
-	var c = document.getElementById("c").value;
+function citeste(){
+	var val_a = document.getElementById("a").value;
+	var val_b = document.getElementById("b").value;
+	var val_c = document.getElementById("c").value;
+	var coef = {a:val_a, b:val_b, c:val_c};
+	return coef;
+}
+
+function rez_ec2(coef){
+	var delta = coef.b * coef.b - 4 * coef.a * coef.c;
 	
-	var delta = b * b - 4 * a * c;
-	
-	var x1Re, x1Im, x2R2, x2Im;
+	var sol_x1,sol_x2;
 	if (delta >= 0) {
-		x1Re = (-b + Math.sqrt(delta) ) / (2 * a);
-		x2Re = (-b - Math.sqrt(delta) ) / (2 * a);
-		x1Im = x2Im = 0;	
+		sol_x1 = {re:(-coef.b + Math.sqrt(delta) ) / (2 * coef.a), im:0};
+		sol_x2 = {re:(-coef.b - Math.sqrt(delta) ) / (2 * coef.a), im:0};	
 	} else {
-		x1Re = -b /( 2 * a);
-		x1Im = Math.sqrt(-delta) / (2 * a);
-		x2Re = -b /( 2 * a);
-		x2Im = -Math.sqrt(-delta) / (2 * a);
+		sol_x1 = { re:-coef.b /( 2 * coef.a), im:Math.sqrt(-delta) / (2 * coef.a)};
+		sol_x2 = { re:-coef.b /( 2 * coef.a), im:-Math.sqrt(-delta) / (2 * coef.a)};
 	}
-	
-	document.getElementById("x1").innerHTML = "X1 = " + x1Re + " + "  + x1Im + "*i";
-	document.getElementById("x2").innerHTML = "X2 = " + x2Re + " + " + x2Im + "*i";
+	var sol = {x1:sol_x1, x2:sol_x2};
+	return sol;
+}
+
+function afisaza(x, id){
+	document.getElementById(id).innerHTML = id + " = " + x.re + "+" + x.im + "*i";
+}
+
+
+function rezolvaEc(){
+	var coef = citeste();
+	var sol = rez_ec2(coef);
+	afisaza(sol.x1, "x1");
+	afisaza(sol.x2, "x2");
 }
