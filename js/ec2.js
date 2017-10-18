@@ -1,34 +1,30 @@
-function citeste(){
-	var val_a = document.getElementById("a").value;
-	var val_b = document.getElementById("b").value;
-	var val_c = document.getElementById("c").value;
-	var coef = {a:val_a, b:val_b, c:val_c};
-	return coef;
-}
-
-function rez_ec2(coef){
-	var delta = coef.b * coef.b - 4 * coef.a * coef.c;
+function ecuatie2(){
+	this.citeste = function(){
+		this.a = document.getElementById("a").value;
+		this.b = document.getElementById("b").value;
+		this.c = document.getElementById("c").value;
+	};
 	
-	var sol_x1,sol_x2;
-	if (delta >= 0) {
-		sol_x1 = {re:(-coef.b + Math.sqrt(delta) ) / (2 * coef.a), im:0};
-		sol_x2 = {re:(-coef.b - Math.sqrt(delta) ) / (2 * coef.a), im:0};	
-	} else {
-		sol_x1 = { re:-coef.b /( 2 * coef.a), im:Math.sqrt(-delta) / (2 * coef.a)};
-		sol_x2 = { re:-coef.b /( 2 * coef.a), im:-Math.sqrt(-delta) / (2 * coef.a)};
-	}
-	var sol = {x1:sol_x1, x2:sol_x2};
-	return sol;
+	this.calculeaza = function(){
+		var delta = this.b * this.b - 4 * this.a * this.c;
+		if (delta >= 0) {
+			this.x1 = {re:(-this.b + Math.sqrt(delta) ) / (2 * this.a), im:0};
+			this.x2 = {re:(-this.b - Math.sqrt(delta) ) / (2 * this.a), im:0};	
+		} else {
+			this.x1 = { re:-this.b /( 2 * this.a), im:Math.sqrt(-delta) / (2 * this.a)};
+			this.x2 = { re:-this.b /( 2 * this.a), im:-Math.sqrt(-delta) / (2 * this.a)};
+		}
+	};
+	
+	this.afisaza = function(){
+		document.getElementById("x1").innerHTML = "x1 = " + this.x1.re + "+" + this.x1.im + "*i";
+		document.getElementById("x2").innerHTML = "x2 = " + this.x2.re + "+" + this.x2.im + "*i";
+	};
 }
-
-function afisaza(x, id){
-	document.getElementById(id).innerHTML = id + " = " + x.re + "+" + x.im + "*i";
-}
-
 
 function rezolvaEc(){
-	var coef = citeste();
-	var sol = rez_ec2(coef);
-	afisaza(sol.x1, "x1");
-	afisaza(sol.x2, "x2");
+	var e = new ecuatie2();
+	e.citeste();
+	e.calculeaza();
+	e.afisaza();
 }
