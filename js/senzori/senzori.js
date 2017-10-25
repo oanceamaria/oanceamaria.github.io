@@ -10,6 +10,6 @@ function ondeviceorientation(event) {
 }
 
 function ondevicemotion(event){
-	document.getElementById("acc").innerHTML = "Aceleration >>>  X: " + (Math.round(event.acceleration.x * 10) / 10) + "Y: " + (Math.round(event.acceleration.y * 10) / 10) + "Z: " + (Math.round(event.acceleration.z * 10) / 10);
-	document.getElementById("accG").innerHTML = "AcelerationG >>>  X: " + (Math.round(event.accelerationIncludingGravity.x * 10) / 10) + "Y: " + (Math.round(event.accelerationIncludingGravity.y * 10) / 10) + "Z: " + (Math.round(event.accelerationIncludingGravity.z * 10) / 10);
+	document.getElementById("acc").innerHTML = "Aceleration >>>  X: " + (Math.round(event.acceleration.x * 10) / 10) + " Y: " + (Math.round(event.acceleration.y * 10) / 10) + " Z: " + (Math.round(event.acceleration.z * 10) / 10);
+	document.getElementById("accG").innerHTML = "AcelerationG >>>  X: " + (Math.round(event.accelerationIncludingGravity.x * 10) / 10) + " Y: " + (Math.round(event.accelerationIncludingGravity.y * 10) / 10) + " Z: " + (Math.round(event.accelerationIncludingGravity.z * 10) / 10);
 }
