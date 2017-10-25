@@ -16,5 +16,5 @@ function ondevicemotion(event){
 	var yInclin = Math.atan(ag.y / ag.z);
 	
 	document.getElementById("accG").innerHTML = "AcelerationG >>>  X: " + (Math.round(ag.x * 10) / 10) + " Y: " + (Math.round(ag.y * 10) / 10) + " Z: " + (Math.round(ag.z * 10) / 10) + 
-												"<br> Inaclinare >>> X: " + xInclin + " Y: " + yInclin;
+												"<br> Inaclinare >>> X: " + (Math.round(xInclin * 10) / 10) + " Y: " + (Math.round(yInclin * 10) / 10);
 }
