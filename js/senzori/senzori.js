@@ -1,12 +1,33 @@
-document.getElementById("idLogicV").innerHTML = "Logic level version: 2017.10.25.3"
+document.getElementById("idLogicV").innerHTML = "Business level version: 2017.11.01.1"
 
 window.addEventListener('deviceorientation',ondeviceorientation );
 window.addEventListener('devicemotion',ondevicemotion );
 
+function deseneazaCerc(gamma, beta){
+	var canvas = document.getElementById('canvas');
+	var context = canvas.getContext('2d');
+
+	context.beginPath();
+	var w = canvas.getAttribute("width");
+	var h = canvas.getAttribute("height");
+	var centru = {x : w / 2, y : h / 2};
+	var raza = 10;
+	var maxDeplasareX = w / 2 - raza;
+	var maxDeplasareY = h / 2 - raza;
+	
+	context.arc(centru.x + gamma / 90 * maxDeplasareX, centru.y + beta / 90 * maxDeplasareY, raza, 0, 2 * Math.PI);
+	context.stroke()
+	
+
+}
+
 function ondeviceorientation(event) { 
-	document.getElementById("id_alpha").innerHTML = "Alpha: " + Math.round(event.alpha * 10) / 10;
-	document.getElementById("id_beta").innerHTML = "Beta: " + Math.round(event.beta * 10) / 10;
-	document.getElementById("id_gama").innerHTML = "Gama: " + Math.round(event.gamma * 10) / 10;	
+	var alpha = event.alpha;
+	var beta = event.beta;
+	var gamma = event.gamma;
+	document.getElementById("id_alpha").innerHTML = "Alpha: " + Math.round(alpha * 10) / 10;
+	document.getElementById("id_beta").innerHTML = "Beta: " + Math.round(beta * 10) / 10;
+	document.getElementById("id_gama").innerHTML = "Gamma: " + Math.round(gamma * 10) / 10;	
 }
 
 function ondevicemotion(event){
@@ -16,5 +37,7 @@ function ondevicemotion(event){
 	var beta = Math.atan(ag.y / ag.z) * 180 / Math.PI;
 	
 	document.getElementById("accG").innerHTML = "AcelerationG >>>  X: " + (Math.round(ag.x * 10) / 10) + " Y: " + (Math.round(ag.y * 10) / 10) + " Z: " + (Math.round(ag.z * 10) / 10) + 
-												"<br> Inaclinare >>> Gamma: " + (Math.round(gamma * 10) / 10) + " Beta: " + (Math.round(beta * 10) / 10);
+	
+	deseneazaCerc(gamma, beta);											"<br> Inaclinare >>> Gamma: " + (Math.round(gamma * 10) / 10) + " Beta: " + (Math.round(beta * 10) / 10);
 }
+
