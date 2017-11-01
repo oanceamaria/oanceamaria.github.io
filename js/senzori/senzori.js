@@ -1,4 +1,4 @@
-document.getElementById("idLogicV").innerHTML = "Business level version: 2017.11.01.3"
+document.getElementById("idLogicV").innerHTML = "Business level version: 2017.11.01.4"
 
 window.addEventListener('deviceorientation',ondeviceorientation );
 window.addEventListener('devicemotion',ondevicemotion );
@@ -7,6 +7,8 @@ function deseneazaPatratCanvas(alpha, beta, gamma){
 	var canvas = document.getElementById('canvas');
 	var context = canvas.getContext('2d');
 
+	context.clearRect(0, 0, w, h); 
+	
 	context.beginPath();
 	var w = canvas.getAttribute("width");
 	var h = canvas.getAttribute("height");
@@ -15,7 +17,7 @@ function deseneazaPatratCanvas(alpha, beta, gamma){
 	var maxDeplasareX = w / 2 - raza;
 	var maxDeplasareY = h / 2 - raza;
 	
-	context.clearRect(0, 0, w, h);
+	
 	
 	context.arc(centru.x + gamma / 90 * maxDeplasareX, centru.y + beta / 90 * maxDeplasareY, raza, 0, 2 * Math.PI);
 	context.stroke();
