@@ -15,9 +15,10 @@ function deseneazaCerc(gamma, beta){
 	var maxDeplasareX = w / 2 - raza;
 	var maxDeplasareY = h / 2 - raza;
 	
-	context.arc(centru.x + gamma / 90 * maxDeplasareX, centru.y + beta / 90 * maxDeplasareY, raza, 0, 2 * Math.PI);
-	context.stroke()
+	context.clearRect(0, 0, w, h);
 	
+	context.arc(centru.x + gamma / 90 * maxDeplasareX, centru.y + beta / 90 * maxDeplasareY, raza, 0, 2 * Math.PI);
+	context.stroke();
 
 }
 
