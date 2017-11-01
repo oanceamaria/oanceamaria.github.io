@@ -1,4 +1,4 @@
-document.getElementById("idLogicV").innerHTML = "Business level version: 2017.11.01.6"
+document.getElementById("idLogicV").innerHTML = "Business level version: 2017.11.01.7"
 
 window.addEventListener('deviceorientation',ondeviceorientation );
 window.addEventListener('devicemotion',ondevicemotion );
@@ -7,20 +7,28 @@ function deseneazaPatratCanvas(alpha, beta, gamma){
 	var canvas = document.getElementById('canvas');
 	var context = canvas.getContext('2d');
 
+	context.resetTransform();
+	context.clearRect(0, 0, w, h); 
 	
-	
-	context.beginPath();
 	var w = canvas.getAttribute("width");
 	var h = canvas.getAttribute("height");
+	
 	var centru = {x : w / 2, y : h / 2};
 	var latura = 10;
 	var maxDeplasareX = w / 2 - latura / 2;
 	var maxDeplasareY = h / 2 - latura / 2;
 	
-	context.clearRect(0, 0, w, h); 
+	var centruPatrat = {x : centru.x + gamma / 90 * maxDeplasareX, y :  centru.y + beta / 90 * maxDeplasareY}
+	
+	context.translate(centruPatrat.x, centruPatrat.y);
+	
+	context.rotate(alpha  / 180 * Math.PI);
+	
+	
 	
 	//context.arc(centru.x + gamma / 90 * maxDeplasareX, centru.y + beta / 90 * maxDeplasareY, raza, 0, 2 * Math.PI);
-	context.strokeRect(centru.x - latura / 2 + gamma / 90 * maxDeplasareX, centru.y - latura / 2  + beta / 90 * maxDeplasareY, latura, latura);
+	context.beginPath();
+	context.strokeRect(-latura / 2, - latura / 2, latura, latura);
 	
 	context.stroke();
 }
@@ -68,7 +76,7 @@ function ondeviceorientation(event) {
 	document.getElementById("id_beta").innerHTML = "Beta: " + Math.round(beta * 10) / 10;
 	document.getElementById("id_gama").innerHTML = "Gamma: " + Math.round(gamma * 10) / 10;	
 	
-	//deseneazaPatratCanvas(alpha, beta, gamma);
+	deseneazaPatratCanvas(alpha, beta, gamma);
 }
 
 function ondevicemotion(event){
@@ -83,7 +91,7 @@ function ondevicemotion(event){
 	
 	//deseneazaCercCanvas(gamma, beta);	
 	//deseneazaCercSvg(gamma, beta);
-	var alpha = 2;
-	deseneazaPatratCanvas(alpha, beta, gamma);
+	/*var alpha = 2;
+	deseneazaPatratCanvas(alpha, beta, gamma);*/
 }
 
