@@ -8,7 +8,7 @@ function deseneazaPatratCanvas(alpha, beta, gamma){
 	var context = canvas.getContext('2d');
 
 	context.resetTransform();
-	
+	context.clearRect(0, 0, w, h); 
 	
 	var w = canvas.getAttribute("width");
 	var h = canvas.getAttribute("height");
@@ -28,7 +28,6 @@ function deseneazaPatratCanvas(alpha, beta, gamma){
 	
 	//context.arc(centru.x + gamma / 90 * maxDeplasareX, centru.y + beta / 90 * maxDeplasareY, raza, 0, 2 * Math.PI);
 	context.beginPath();
-	context.clearRect(0, 0, w, h); 
 	context.strokeRect(-latura / 2, - latura / 2, latura, latura);
 	
 	context.stroke();
