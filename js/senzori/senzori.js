@@ -1,4 +1,4 @@
-document.getElementById("idLogicV").innerHTML = "Business level version: 2017.11.01.4"
+document.getElementById("idLogicV").innerHTML = "Business level version: 2017.11.01.6"
 
 window.addEventListener('deviceorientation',ondeviceorientation );
 window.addEventListener('devicemotion',ondevicemotion );
@@ -13,13 +13,15 @@ function deseneazaPatratCanvas(alpha, beta, gamma){
 	var w = canvas.getAttribute("width");
 	var h = canvas.getAttribute("height");
 	var centru = {x : w / 2, y : h / 2};
-	var raza = 10;
-	var maxDeplasareX = w / 2 - raza;
-	var maxDeplasareY = h / 2 - raza;
+	var latura = 10;
+	var maxDeplasareX = w / 2 - latura / 2;
+	var maxDeplasareY = h / 2 - latura / 2;
 	
 	
 	
-	context.arc(centru.x + gamma / 90 * maxDeplasareX, centru.y + beta / 90 * maxDeplasareY, raza, 0, 2 * Math.PI);
+	//context.arc(centru.x + gamma / 90 * maxDeplasareX, centru.y + beta / 90 * maxDeplasareY, raza, 0, 2 * Math.PI);
+	context.strokeRect(centru.x - latura / 2 + gamma / 90 * maxDeplasareX, centru.y - latura / 2  + beta / 90 * maxDeplasareY, latura, latura);
+	
 	context.stroke();
 }
 
@@ -47,14 +49,13 @@ function deseneazaCercCanvas(gamma, beta){
 	var w = canvas.getAttribute("width");
 	var h = canvas.getAttribute("height");
 	var centru = {x : w / 2, y : h / 2};
-	var latura = 10;
+	var raza = 10;
 	var maxDeplasareX = w / 2 - raza;
 	var maxDeplasareY = h / 2 - raza;
 	
 	context.clearRect(0, 0, w, h);
 	
-	//context.arc(centru.x + gamma / 90 * maxDeplasareX, centru.y + beta / 90 * maxDeplasareY, raza, 0, 2 * Math.PI);
-	context.strokeRect(centru.x - latura / 2 + gamma / 90 * maxDeplasareX, centru.y - latura / 2  + beta / 90 * maxDeplasareY, latura, latura);
+	context.arc(centru.x + gamma / 90 * maxDeplasareX, centru.y + beta / 90 * maxDeplasareY, raza, 0, 2 * Math.PI);
 	context.stroke();
 
 }
