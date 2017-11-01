@@ -3,6 +3,24 @@ document.getElementById("idLogicV").innerHTML = "Business level version: 2017.11
 window.addEventListener('deviceorientation',ondeviceorientation );
 window.addEventListener('devicemotion',ondevicemotion );
 
+function deseneazaPatratCanvas(alpha, beta, gamma){
+	var canvas = document.getElementById('canvas');
+	var context = canvas.getContext('2d');
+
+	context.beginPath();
+	var w = canvas.getAttribute("width");
+	var h = canvas.getAttribute("height");
+	var centru = {x : w / 2, y : h / 2};
+	var raza = 10;
+	var maxDeplasareX = w / 2 - raza;
+	var maxDeplasareY = h / 2 - raza;
+	
+	context.clearRect(0, 0, w, h);
+	
+	context.arc(centru.x + gamma / 90 * maxDeplasareX, centru.y + beta / 90 * maxDeplasareY, raza, 0, 2 * Math.PI);
+	context.stroke();
+}
+
 function deseneazaCercSvg(gamma, beta){
 	var svg = document.getElementById("svg");
 	var w = svg.getAttribute("width");
@@ -27,13 +45,14 @@ function deseneazaCercCanvas(gamma, beta){
 	var w = canvas.getAttribute("width");
 	var h = canvas.getAttribute("height");
 	var centru = {x : w / 2, y : h / 2};
-	var raza = 10;
+	var latura = 10;
 	var maxDeplasareX = w / 2 - raza;
 	var maxDeplasareY = h / 2 - raza;
 	
 	context.clearRect(0, 0, w, h);
 	
-	context.arc(centru.x + gamma / 90 * maxDeplasareX, centru.y + beta / 90 * maxDeplasareY, raza, 0, 2 * Math.PI);
+	//context.arc(centru.x + gamma / 90 * maxDeplasareX, centru.y + beta / 90 * maxDeplasareY, raza, 0, 2 * Math.PI);
+	context.strokeRect(centru.x - latura / 2 + gamma / 90 * maxDeplasareX, centru.y - latura / 2  + beta / 90 * maxDeplasareY, latura, latura);
 	context.stroke();
 
 }
@@ -45,6 +64,8 @@ function ondeviceorientation(event) {
 	document.getElementById("id_alpha").innerHTML = "Alpha: " + Math.round(alpha * 10) / 10;
 	document.getElementById("id_beta").innerHTML = "Beta: " + Math.round(beta * 10) / 10;
 	document.getElementById("id_gama").innerHTML = "Gamma: " + Math.round(gamma * 10) / 10;	
+	
+	//deseneazaPatratCanvas(alpha, beta, gamma);
 }
 
 function ondevicemotion(event){
@@ -57,7 +78,8 @@ function ondevicemotion(event){
 												"<br> Inaclinare >>> Gamma: " + (Math.round(gamma * 10) / 10) + " Beta: " + (Math.round(beta * 10) / 10);
 	
 	
-	deseneazaCercCanvas(gamma, beta);	
-	deseneazaCercSvg(gamma, beta);
+	//deseneazaCercCanvas(gamma, beta);	
+	//deseneazaCercSvg(gamma, beta);
+	deseneazaPatratCanvas(alpha, beta, gamma);
 }
 
