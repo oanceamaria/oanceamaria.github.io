@@ -1,4 +1,4 @@
-document.getElementById("idLogicV").innerHTML = "Business level version: 2017.11.01.2"
+document.getElementById("idLogicV").innerHTML = "Business level version: 2017.11.01.3"
 
 window.addEventListener('deviceorientation',ondeviceorientation );
 window.addEventListener('devicemotion',ondevicemotion );
@@ -80,6 +80,7 @@ function ondevicemotion(event){
 	
 	//deseneazaCercCanvas(gamma, beta);	
 	//deseneazaCercSvg(gamma, beta);
+	var alpha = 2;
 	deseneazaPatratCanvas(alpha, beta, gamma);
 }
 
