@@ -7,7 +7,7 @@ function deseneazaPatratCanvas(alpha, beta, gamma){
 	var canvas = document.getElementById('canvas');
 	var context = canvas.getContext('2d');
 
-	context.clearRect(0, 0, w, h); 
+	
 	
 	context.beginPath();
 	var w = canvas.getAttribute("width");
@@ -17,7 +17,7 @@ function deseneazaPatratCanvas(alpha, beta, gamma){
 	var maxDeplasareX = w / 2 - latura / 2;
 	var maxDeplasareY = h / 2 - latura / 2;
 	
-	
+	context.clearRect(0, 0, w, h); 
 	
 	//context.arc(centru.x + gamma / 90 * maxDeplasareX, centru.y + beta / 90 * maxDeplasareY, raza, 0, 2 * Math.PI);
 	context.strokeRect(centru.x - latura / 2 + gamma / 90 * maxDeplasareX, centru.y - latura / 2  + beta / 90 * maxDeplasareY, latura, latura);
