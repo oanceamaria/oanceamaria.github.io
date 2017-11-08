@@ -1,4 +1,4 @@
-document.getElementById("idLogicV").innerHTML = "Business level version: 2017.11.08.9"
+document.getElementById("idLogicV").innerHTML = "Business level version: 2017.11.08.10"
 
 var canvas = document.getElementById('canvas');
 var context = canvas.getContext('2d');
@@ -24,7 +24,7 @@ function onTouchStart(e){
 	var touches = e.changedTouches;
 	
 	for (var i = 0; i < touches.length; i++){
-		touch.push({id:touches[i].identifier, color:genRendColor()});
+		touch.push({id:touches[i].identifier, color:genRendColor(), x:touches[i].pageX, y:touches[i].pageY});
 		context.beginPath();
 		context.arc(touches[i].pageX - rect.left, touches[i].pageY - rect.top, 10, 0, 2 * Math.PI);
 		context.strokeStyle = touch[touch.length - 1].color;
@@ -41,8 +41,8 @@ function onTouchMove(e){
 	
 	for (var i = 0; i < touches.length; i++) {
 		var color = "#FFFFFF";
-		
-		for (var j = 0; j < touch.length; j++){
+		var j;
+		for ( j = 0; j < touch.length; j++){
 			if(touches[i].identifier == touch[j].id) {
 				color = touch[j].color;
 				break;
@@ -50,11 +50,18 @@ function onTouchMove(e){
 		}
 		
 		context.beginPath();
+		context.moveTo(touch[j].x - rect.left, touch[j].x.y - rect.top);
+		context.lineWidth = 20;
+		context.lineTo(touches[i].pageX - rect.left, touches[i].pageY - rect.top);
 		context.arc(touches[i].pageX - rect.left, touches[i].pageY - rect.top, 10, 0, 2 * Math.PI);
 		context.strokeStyle = color;
 		context.fillStyle = color;
 		context.fill();
 		context.stroke();
+		
+		touch[j].x = touches[i].pageX;
+		touch[j].y = touches[i].pageY;
+		
 	}
 }
 	
