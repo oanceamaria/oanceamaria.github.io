@@ -7,6 +7,7 @@ var rect = canvas.getBoundingClientRect();
 
 canvas.addEventListener("touchstart", onTouchStart);
 canvas.addEventListener("touchmove", onTouchMove);
+canvas.addEventListener("touchend", onTouchEnd);
 
 var touch = [];
 
@@ -24,7 +25,7 @@ function onTouchStart(e){
 	var touches = e.changedTouches;
 	
 	for (var i = 0; i < touches.length; i++){
-		touch.push({id:touches[i].identifier, color:genRendColor(), x:touches[i].pageX, y:touches[i].pageY});
+		touch.push({id:touches[i].identifier, color:genRendColor(), x:touches[i].pageX  - rect.left, y:touches[i].pageY - rect.left});
 		context.beginPath();
 		context.arc(touches[i].pageX - rect.left, touches[i].pageY - rect.top, 10, 0, 2 * Math.PI);
 		context.strokeStyle = touch[touch.length - 1].color;
@@ -65,3 +66,21 @@ function onTouchMove(e){
 	}
 }
 	
+	
+function onTouchEnd(e){
+	e.preventDefault();
+	var touches = e.changedTouches;
+	
+	for (var i = 0; i < touches.length; i++) {
+		var color = "#FFFFFF";
+		var j;
+		for ( j = 0; j < touch.length; j++){
+			if(touches[i].identifier == touch[j].id) {
+				color = touch[j].color;
+				break;
+			}
+		}
+		
+		
+	}
+}
