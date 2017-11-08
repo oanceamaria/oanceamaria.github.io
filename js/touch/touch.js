@@ -51,7 +51,7 @@ function onTouchMove(e){
 		}
 		
 		context.beginPath();
-		context.moveTo(touch[j].x - rect.left, touch[j].x.y - rect.top);
+		context.moveTo(touch[j].x - rect.left, touch[j].y - rect.top);
 		context.lineWidth = 20;
 		context.lineTo(touches[i].pageX - rect.left, touches[i].pageY - rect.top);
 		context.arc(touches[i].pageX - rect.left, touches[i].pageY - rect.top, 10, 0, 2 * Math.PI);
