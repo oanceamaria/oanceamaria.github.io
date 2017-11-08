@@ -3,6 +3,8 @@ document.getElementById("idLogicV").innerHTML = "Business level version: 2017.11
 var canvas = document.getElementById('canvas');
 var context = canvas.getContext('2d');
 
+var rect = canvas.getBoundingClientRect();
+
 canvas.addEventListener("touchstart", onTouchStart);
 canvas.addEventListener("touchmove", onTouchMove);
 
@@ -19,7 +21,6 @@ function genRendColor(){
 
 function onTouchStart(event){
 	var touches = event.changedTouches;
-	var rect = canvas.getBoundingClientRect();
 	
 	for (i = 0; i < touches.length; i++){
 		touch.push({id:touches[i].identifier, color:genRendColor()});
