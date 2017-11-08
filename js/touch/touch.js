@@ -23,5 +23,6 @@ function onTouchStart(event){
 		context.arc(touches[i].pageX - rect.left, touches[i].pageY - rect.top, 10, 0, 2 * Math.PI);
 		context.strokeStyle = genRendColor();
 		context.stroke();
+		
 	}
 	
