@@ -1,4 +1,4 @@
-document.getElementById("idLogicV").innerHTML = "Business level version: 2017.11.08.10"
+document.getElementById("idLogicV").innerHTML = "Business level version: 2017.11.08.11"
 
 var canvas = document.getElementById('canvas');
 var context = canvas.getContext('2d');
@@ -79,6 +79,7 @@ function onTouchEnd(e){
 				color = touch[j].color;
 				break;
 			}
+			touch.splice(j, 1);
 		}
 		
 		
