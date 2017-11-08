@@ -1,4 +1,4 @@
-document.getElementById("idLogicV").innerHTML = "Business level version: 2017.11.08.0"
+document.getElementById("idLogicV").innerHTML = "Business level version: 2017.11.08.1"
 
 var canvas = document.getElementById('canvas');
 var context = canvas.getContext('2d');
@@ -6,7 +6,7 @@ var context = canvas.getContext('2d');
 window.addEventListener("touchstart", onTouchStart);
 
 function onTouchStart(event){
-	var touches = event.chengedTouches;
+	var touches = event.changedTouches;
 	
 	for (i = 0; i < touches.length; i++){
 		context.beginPath();
