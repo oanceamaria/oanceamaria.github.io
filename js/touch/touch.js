@@ -1,4 +1,4 @@
-document.getElementById("idLogicV").innerHTML = "Business level version: 2017.11.08.3"
+document.getElementById("idLogicV").innerHTML = "Business level version: 2017.11.08.4"
 
 var canvas = document.getElementById('canvas');
 var context = canvas.getContext('2d');
@@ -18,11 +18,22 @@ function onTouchStart(event){
 	var touches = event.changedTouches;
 	var rect = canvas.getBoundingClientRect();
 	
+	for (i = 0; i < touches.length; i++){
+		context.beginPath();
+		context.arc(touches[i].pageX - rect.left, touches[i].pageY - rect.top, 10, 0, 2 * Math.PI);
+		context.strokeStyle = genRendColor();
+		context.stroke();
+	}
+		
+}
+/*
+function onTouchmove(e){
+	var touches = event.changedTouches;
+	
 	for (i = 0; i < touches.length; i++)
 		context.beginPath();
 		context.arc(touches[i].pageX - rect.left, touches[i].pageY - rect.top, 10, 0, 2 * Math.PI);
 		context.strokeStyle = genRendColor();
 		context.stroke();
-		
-	}
+}*/
 	
