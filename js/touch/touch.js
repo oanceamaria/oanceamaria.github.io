@@ -1,4 +1,4 @@
-document.getElementById("idLogicV").innerHTML = "Business level version: 2017.11.08.5"
+document.getElementById("idLogicV").innerHTML = "Business level version: 2017.11.08.6"
 
 var canvas = document.getElementById('canvas');
 var context = canvas.getContext('2d');
@@ -19,8 +19,8 @@ function genRendColor(){
 	return color;
 }
 
-function onTouchStart(event){
-	var touches = event.changedTouches;
+function onTouchStart(e){
+	var touches = e.changedTouches;
 	
 	for (i = 0; i < touches.length; i++){
 		touch.push({id:touches[i].identifier, color:genRendColor()});
@@ -35,7 +35,7 @@ function onTouchStart(event){
 }
 
 function onTouchMove(e){
-	var touches = event.changedTouches;
+	var touches = e.changedTouches;
 	
 	for (i = 0; i < touches.length; i++) {
 		var color = "#FFFFFF";
