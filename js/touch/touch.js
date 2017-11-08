@@ -1,4 +1,4 @@
-document.getElementById("idLogicV").innerHTML = "Business level version: 2017.11.08.8"
+document.getElementById("idLogicV").innerHTML = "Business level version: 2017.11.08.9"
 
 var canvas = document.getElementById('canvas');
 var context = canvas.getContext('2d');
@@ -42,7 +42,7 @@ function onTouchMove(e){
 	for (var i = 0; i < touches.length; i++) {
 		var color = "#FFFFFF";
 		
-		for (var j = 0; j < touch.length; i++){
+		for (var j = 0; j < touch.length; j++){
 			if(touches[i].identifier == touch[j].id) {
 				color = touch[j].color;
 				break;
