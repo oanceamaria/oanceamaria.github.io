@@ -5,8 +5,8 @@ var context = canvas.getContext('2d');
 
 window.addEventListener("touchstart", onTouchStart);
 
-function onTouchStart(){
-	var touches = e.chengedTouches;
+function onTouchStart(event){
+	var touches = event.chengedTouches;
 	
 	for (i = 0; i < touches.lwngth; i++){
 		context.beginPath();
