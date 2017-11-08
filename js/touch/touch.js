@@ -8,7 +8,7 @@ window.addEventListener("touchstart", onTouchStart);
 function onTouchStart(event){
 	var touches = event.chengedTouches;
 	
-	for (i = 0; i < touches.lwngth; i++){
+	for (i = 0; i < touches.length; i++){
 		context.beginPath();
 		context.arc(touches[i].pageX, touches[i].pageY, 10, 0, 2 * Math.PI);
 		context.stroke();
