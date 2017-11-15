@@ -1,12 +1,13 @@
 document.getElementById("idLogicV").innerHTML = "Logic level version: 2017.11.15.0";
 
 var canvas = document.getElementById("canvas");
-var context = canvas.getAttentionContext("2d");
-var rect = canvas.getBoundingClientRect();
+var context = canvas.getContext("2d");
 var img = document.getElementById("img");
 
-context.drawImage(img, 100, 100, 100, 100);
-
+img.onload = function (){
+	var rect = img.getBoundingClientRect();
+	context.drawImage(img, 100, 100, 100, 100);
+}
 canvas.addEventListener("touchmove", onTouchMove);
 
 function onTouchMove(e){
