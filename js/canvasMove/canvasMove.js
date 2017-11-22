@@ -1,4 +1,4 @@
-document.getElementById("idLogicV").innerHTML = "Logic level version: 2017.11.22.0";
+document.getElementById("idLogicV").innerHTML = "Logic level version: 2017.11.22.2";
 
 var canvas = document.getElementById("canvas");
 var context = canvas.getContext("2d");
@@ -21,9 +21,9 @@ function onTouchMove(e){
 	var touches = e.changedTouches;
 	
 	for (var i = 0; i < touches.length; i++){
-		if( touches[i].pageX < topX + imgWidth  && touches[i].pageX >= topX &&
-			touches[i].pageY < topY + imgHeight  && touches[i].pageY >= topY ) {
-				context.clearRect();
+		if( touches[i].pageX - rectCanvas.left < topX + imgWidth  && touches[i].pageX - rectCanvas.left >= topX &&
+			touches[i].pageY - rectCanvas.top < topY + imgHeight  && touches[i].pageY - rectCanvas.top >= topY ) {
+				context.clearRect(0, 0, 800, 600 );
 				topX = touches[i].pageX - rectCanvas.left;
 				topY = touches[i].pageY - rectCanvas.top;
 				context.drawImage(img, topX, topY, imgWidth, imgHeight);
