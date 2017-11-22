@@ -19,10 +19,10 @@ function speak(){
 	}
 	
 	enunt.onend = function (e){
-		document.getElementById("idButtonSpeak").dissable = false;
+		document.getElementById("idButtonSpeak").disabled = false;
 	}
 	
-	document.getElementById("idButtonSpeak").dissable = true;
+	document.getElementById("idButtonSpeak").disabled = true;
 	
 	synt.speak(enunt);
 }
