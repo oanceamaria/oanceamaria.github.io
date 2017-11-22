@@ -1,4 +1,4 @@
-document.getElementById("idLogicV").innerHTML = "Logic level version: 2017.11.22.5";
+document.getElementById("idLogicV").innerHTML = "Logic level version: 2017.11.22.6";
 
 var synt = window.speechSynthesis;
 
@@ -17,5 +17,12 @@ function speak(){
 	enunt.onerror = function (e){
 		alert(e.error);
 	}
+	
+	enunt.onend = function (e){
+		document.getElementById("idButtonSpeak").dissable = false;
+	}
+	
+	document.getElementById("idButtonSpeak").dissable = true;
+	
 	synt.speak(enunt);
 }
