@@ -1,4 +1,4 @@
-document.getElementById("idLogicV").innerHTML = "Logic level version: 2017.11.22.1";
+document.getElementById("idLogicV").innerHTML = "Logic level version: 2017.11.22.2";
 
 var synt = window.speechSynthesis;
 
@@ -7,4 +7,10 @@ function getVoices(){
 	for (var i = 0; i < voices.length; i++){
 		document.getElementById("idVoices").innerHTML += voices[i].name + ": " + voices[i].lang + "<br>";
 	}
+}
+
+function speek(){
+	var enunt = new SpeechSynthesisUtterance();
+	enunt.text = document.getElementById("idText").value;
+	synt.speak(enunt);
 }
