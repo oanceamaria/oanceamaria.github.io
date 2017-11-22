@@ -1,11 +1,13 @@
-document.getElementById("idLogicV").innerHTML = "Logic level version: 2017.11.22.6";
+document.getElementById("idLogicV").innerHTML = "Logic level version: 2017.11.22.7";
 
 var synt = window.speechSynthesis;
 
 function getVoices(){
 	var voices = synt.getVoices();
 	for (var i = 0; i < voices.length; i++){
-		document.getElementById("idVoices").innerHTML += voices[i].name + ": " + voices[i].lang + "<br>";
+		var e = document.createElement("option");
+		e.text = voices[i].lang;
+		document.getElementById("idVoices").add(e);
 	}
 }
 
