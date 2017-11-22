@@ -1,4 +1,4 @@
-document.getElementById("idLogicV").innerHTML = "Logic level version: 2017.11.22.5";
+document.getElementById("idLogicV").innerHTML = "Logic level version: 2017.11.22.6";
 
 var canvas = document.getElementById("canvas");
 var context = canvas.getContext("2d");
@@ -17,7 +17,7 @@ img.onload = function (){
 	context.drawImage(img, topX, topY, imgWidth, imgHeight);
 }
 canvas.addEventListener("touchmove", onTouchMove);
-canvas.addEventListener("toucstart", onTouchStart);
+canvas.addEventListener("touchstart", onTouchStart);
 
 
 function onTouchStart(e){
