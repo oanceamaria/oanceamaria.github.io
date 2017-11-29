@@ -4,7 +4,7 @@ document.addEventListener("touchstart", onTouchStart);
 
 var recognition = new webkitSpeechRecognition();
 
-recognition.lang = "en-US";
+recognition.lang = "ro-RO";
 recognition.onresult = onSpeechResult;
 recognition.onsoundend = onSoundEnd;
 
