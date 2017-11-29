@@ -18,7 +18,7 @@ function onTouchStart(e){
 }
 
 function onSpeechResult(e){
-	document.getElementById("id_p").innerHTML = e.results[0][0].transcript;
+	document.getElementById("id_p").innerHTML = e.results[0][0].transcript + " (" + e.results[0][0].confidence + ")";
 }
 
 function onSoundEnd(e){
