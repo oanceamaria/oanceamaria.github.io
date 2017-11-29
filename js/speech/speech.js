@@ -1,4 +1,4 @@
-document.getElementById("idLogicV").innerHTML = "Logic level version: 2017.11.29.0";
+document.getElementById("idLogicV").innerHTML = "Logic level version: 2017.11.29.2";
 
 document.addEventListener("touchstart", onTouchStart);
 
