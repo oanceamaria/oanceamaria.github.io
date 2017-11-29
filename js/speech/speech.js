@@ -1,10 +1,10 @@
-document.getElementById("idLogicV").innerHTML = "Logic level version: 2017.11.29.4";
+document.getElementById("idLogicV").innerHTML = "Logic level version: 2017.11.29.5";
 
 document.addEventListener("touchstart", onTouchStart);
 
 var recognition = new webkitSpeechRecognition();
 
-recognition.lang = "en-US";
+recognition.lang = "ro-RO";
 recognition.maxAlternatives = 5;
 recognition.onresult = onSpeechResult;
 recognition.onsoundend = onSoundEnd;
