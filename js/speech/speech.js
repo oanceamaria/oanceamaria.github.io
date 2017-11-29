@@ -21,7 +21,7 @@ function onTouchStart(e){
 function onSpeechResult(e){
 	var alternatives = e.results[0];
 	for (var i = 0; i < alternatives.length; i++){
-		document.getElementById("id_p").innerHTML = alternatives[i].transcript + " (" + alternatives[i].confidence + ")" + "<br>";
+		document.getElementById("id_p").innerHTML += alternatives[i].transcript + " (" + alternatives[i].confidence + ")" + "<br>";
 	}
 }
 
