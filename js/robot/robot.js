@@ -25,11 +25,11 @@ function onSpeechResult(e){
 	for (var i = 0; i < alternatives.length; i++){
 		document.getElementById("id_p").innerHTML += alternatives[i].transcript + " (" + alternatives[i].confidence + ")" + "<br>";
 		switch(alternatives[i].transcript) {
-			case "go forward": speek("moving forward");
+			case "go forward": speak("moving forward");
 								  break;
-			case "go backward": speek("moving backward");
+			case "go backward": speak("moving backward");
 								  break;
-			default: speek("I am stupid!");
+			default: speak("I am stupid!");
 					break;
 		}
 	}
