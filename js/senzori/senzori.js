@@ -4,7 +4,7 @@ document.getElementById("idLogicV").innerHTML = "Business level version: 2017.11
 window.addEventListener('devicemotion', ondevicemotion);
 
 
-var unghiuri = { gamma:0 beta:0};
+var unghiuri = { gamma:0, beta:0};
 
 setInterval(deseneaza_cerc_canvas, 40, unghiuri);
 
