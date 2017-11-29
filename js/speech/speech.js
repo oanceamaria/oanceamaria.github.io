@@ -1,10 +1,11 @@
-document.getElementById("idLogicV").innerHTML = "Logic level version: 2017.11.29.2";
+document.getElementById("idLogicV").innerHTML = "Logic level version: 2017.11.29.4";
 
 document.addEventListener("touchstart", onTouchStart);
 
 var recognition = new webkitSpeechRecognition();
 
 recognition.lang = "ro-RO";
+recognition.maxAlternatives = 5;
 recognition.onresult = onSpeechResult;
 recognition.onsoundend = onSoundEnd;
 
@@ -18,7 +19,10 @@ function onTouchStart(e){
 }
 
 function onSpeechResult(e){
-	document.getElementById("id_p").innerHTML = e.results[0][0].transcript + " (" + e.results[0][0].confidence + ")";
+	var alternatives = e.results[0];
+	for (var i = 0; i < alternatives.length; i++){
+		document.getElementById("id_p").innerHTML = alternatives[i].transcript + " (" + alternatives[i].confidence + ")" + "<br>";
+	}
 }
 
 function onSoundEnd(e){
