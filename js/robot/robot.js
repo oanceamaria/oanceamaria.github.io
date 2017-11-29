@@ -30,6 +30,7 @@ function onSpeechResult(e){
 			case "go backward": speek("moving backward");
 								  break;
 			default: speek("I am stupid!");
+					break;
 		}
 	}
 }
