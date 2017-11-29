@@ -8,8 +8,13 @@ recognition.lang = "en-US";
 recognition.onresult = onSpeechResult;
 recognition.onsoundend = onSoundEnd;
 
+var isListening = false;
+
 function onTouchStart(e){
-	recognition.start();
+	if( !isListening ){
+		recognition.start();
+		isListening = true;
+	}
 }
 
 function onSpeechResult(e){
@@ -18,4 +23,5 @@ function onSpeechResult(e){
 
 function onSoundEnd(e){
 	recognition.stop();
+	isListening = false;
 }
