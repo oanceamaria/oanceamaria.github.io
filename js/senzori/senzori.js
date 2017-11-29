@@ -1,7 +1,10 @@
-document.getElementById("idLogicV").innerHTML = "Business level version: 2017.11.01.7"
+document.getElementById("idLogicV").innerHTML = "Business level version: 2017.11.29.0"
 
-window.addEventListener('deviceorientation',ondeviceorientation );
+//window.addEventListener('deviceorientation',ondeviceorientation );
 window.addEventListener('devicemotion',ondevicemotion );
+var gamma = 0;
+var beta = 0;
+setInterval(deseneazaCercCanvas, 40, gamma, beta )
 
 function deseneazaPatratCanvas(alpha, beta, gamma){
 	var canvas = document.getElementById('canvas');
@@ -49,11 +52,10 @@ function deseneazaCercSvg(gamma, beta){
 	
 }
 
-function deseneazaCercCanvas(gamma, beta){
+function deseneazaCercCanvas(){
 	var canvas = document.getElementById('canvas');
 	var context = canvas.getContext('2d');
 
-	context.beginPath();
 	var w = canvas.getAttribute("width");
 	var h = canvas.getAttribute("height");
 	var centru = {x : w / 2, y : h / 2};
@@ -62,8 +64,13 @@ function deseneazaCercCanvas(gamma, beta){
 	var maxDeplasareY = h / 2 - raza;
 	
 	context.clearRect(0, 0, w, h);
+
+	context.rect(0, 0, w, h);
+	context.stroke();
 	
-	context.arc(centru.x + gamma / 90 * maxDeplasareX, centru.y + beta / 90 * maxDeplasareY, raza, 0, 2 * Math.PI);
+	context.beginPath();
+	context.arc(centru.x + gamma / 90 * max_deplasare_x, centru.y + beta / 90 * max_deplasare_y, raza, 0, 2 * Math.PI);
+ 
 	context.stroke();
 
 }
@@ -82,8 +89,8 @@ function ondeviceorientation(event) {
 function ondevicemotion(event){
 	document.getElementById("acc").innerHTML = "Aceleration >>>  X: " + (Math.round(event.acceleration.x * 10) / 10) + " Y: " + (Math.round(event.acceleration.y * 10) / 10) + " Z: " + (Math.round(event.acceleration.z * 10) / 10);
 	var ag = event.accelerationIncludingGravity;
-	var gamma = - Math.atan(ag.x / ag.z) * 180 / Math.PI;
-	var beta = Math.atan(ag.y / ag.z) * 180 / Math.PI;
+	gamma = - Math.atan(ag.x / ag.z) * 180 / Math.PI;
+	beta = Math.atan(ag.y / ag.z) * 180 / Math.PI;
 	
 	document.getElementById("accG").innerHTML = "AcelerationG >>>  X: " + (Math.round(ag.x * 10) / 10) + " Y: " + (Math.round(ag.y * 10) / 10) + " Z: " + (Math.round(ag.z * 10) / 10) +
 												"<br> Inaclinare >>> Gamma: " + (Math.round(gamma * 10) / 10) + " Beta: " + (Math.round(beta * 10) / 10);
