@@ -1,4 +1,4 @@
-document.getElementById("idLogicV").innerHTML = "Business level version: 2017.12.06.4"; 
+document.getElementById("idLogicV").innerHTML = "Business level version: 2017.12.06.5"; 
 
 
 
