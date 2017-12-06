@@ -13,8 +13,8 @@ function on_gps_success(p)
 	" <br> accuracy = " + p.coords.accuracy + "m" +
 	" <br> altitude = " + p.coords.altitude + "m";
 	
-	var mapStr = "https://maps.googleapis.com/maps/api/staticmap?center=" + p.coords.latitude + "," + p.coords.longitude + "&zoom=10&size=320x240&key=AIzaSyCG5pbBXwZYliEtdrfQWsLMCa_6EYmqCIk";
-	document.getElementById(idGpsImg).setAttribute("src", mapStr);
+	var mapStr = "https://maps.googleapis.com/maps/api/staticmap?markers=color:blue|" + p.coords.latitude + "," + p.coords.longitude + "&zoom=10&size=320x240&key=AIzaSyCG5pbBXwZYliEtdrfQWsLMCa_6EYmqCIk";
+	document.getElementById("idGpsImg").setAttribute("src", mapStr);
 } 
 //--------------------------------------
 function on_gps_error(e)
