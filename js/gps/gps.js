@@ -3,7 +3,7 @@ document.getElementById("idLogicV").innerHTML = "Business level version: 2017.12
 
 
 
-navigator.geolocation.getCurrentPosition(on_gps_success, on_gps_error);
+navigator.geolocation.watchPosition(on_gps_success, on_gps_error);
 
 //--------------------------------------
 function on_gps_success(p)
