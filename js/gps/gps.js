@@ -1,4 +1,4 @@
-document.getElementById("idLogicV").innerHTML = "Business level version: 2017.12.06.3"; 
+document.getElementById("idLogicV").innerHTML = "Business level version: 2017.12.06.4"; 
 
 
 
@@ -13,7 +13,12 @@ function on_gps_success(p)
 	" <br> accuracy = " + p.coords.accuracy + "m" +
 	" <br> altitude = " + p.coords.altitude + "m";
 	
-	var mapStr = "https://maps.googleapis.com/maps/api/staticmap?markers=color:blue|" + p.coords.latitude + "," + p.coords.longitude + "|45,23&zoom=7&size=320x240&key=AIzaSyCG5pbBXwZYliEtdrfQWsLMCa_6EYmqCIk";
+	var mapStr = "https://maps.googleapis.com/maps/api/staticmap?" + 
+	"markers=color:blue|" + p.coords.latitude + "," + p.coords.longitude + "|45,23&" + 
+	"path=color:0xff0000|"+ p.coords.latitude + "," + p.coords.longitude +  "|45,23&" + 
+	"zoom=7&" +
+	"size=320x240&" +
+	"key=AIzaSyCG5pbBXwZYliEtdrfQWsLMCa_6EYmqCIk";
 	document.getElementById("idGpsImg").setAttribute("src", mapStr);
 } 
 //--------------------------------------
