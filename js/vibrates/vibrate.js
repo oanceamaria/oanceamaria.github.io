@@ -1,4 +1,4 @@
-document.getElementById("idLogicV").innerHTML = "Business level version: 2018.01.10.1"; 
+document.getElementById("idLogicV").innerHTML = "Business level version: 2018.01.10.2"; 
 
 document.addEventListener("touchstart", start_timer);
 document.addEventListener("touchend", stop_timer);
