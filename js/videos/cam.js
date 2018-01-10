@@ -1,5 +1,5 @@
 var d = new Date();
-document.getElementById("idLogicV").innerHTML = "Business level version: " + d.getFullYear() + "." + (d.getMonth()+1) + "." + d.getDate() + ".3"; 
+document.getElementById("idLogicV").innerHTML = "Business level version: " + d.getFullYear() + "." + (d.getMonth()+1) + "." + d.getDate() + ".4"; 
 
 var contraints = {audio: true, video:{facingMode:"environment"}};
 navigator.mediaDevices.getUserMedia(contraints).then(on_success).catch(on_error);
@@ -29,7 +29,7 @@ function snap(){
 }
 
 function download(){
-	var img = canvas.toDataURL("image/png");
+	var img = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
 	window.location.href = img;
 }
 
