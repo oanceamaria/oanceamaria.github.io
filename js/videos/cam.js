@@ -11,7 +11,7 @@ function on_success(stream){
 }
 
 function on_error(error){
-	alert("Error");
+	alert("Error"); 
 }
 
 
