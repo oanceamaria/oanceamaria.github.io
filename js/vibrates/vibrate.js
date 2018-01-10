@@ -3,7 +3,7 @@ document.getElementById("idLogicV").innerHTML = "Business level version: 2018.01
 document.addEventListener("touchstart", vibrate);
 
 function vibrate(){
-	window.navigator.vibrate(200);
+	window.navigator.vibrate([200, 200, 500, 200, 1000]);
 }
 
 
